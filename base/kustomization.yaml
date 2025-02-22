@@ -9,4 +9,4 @@ resources:
   - operator-service-account-rbac.yaml
   - postgres-operator.yaml
   - api-service.yaml
-  # - postgres.yaml
+  - postgres.yaml
