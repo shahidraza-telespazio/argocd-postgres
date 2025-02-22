@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: postgres
 
 resources:
+  - namespace.yaml
   - configmap.yaml
   - operator-service-account-rbac.yaml
   - postgres-operator.yaml
