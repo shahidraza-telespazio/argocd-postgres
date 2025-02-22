@@ -1,0 +1,33 @@
+# Source: geonode-k8s/templates/postgres/geonode-manifest.yaml
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: "geonode-postgresql"
+spec:
+  teamId: dis
+  volume:
+    size: 10Gi
+  numberOfInstances: 2
+  users:
+    postgres:
+      - superuser
+    geonode:
+      - superuser
+      - createdb
+      - login
+    geodata:
+      - superuser
+      - createdb
+      - login
+  databases:
+    geonode: geonode
+    geodata: geodata
+  preparedDatabases:
+    geodata:
+      schemas:
+        public: {}
+      extensions:
+        pg_partman: public
+        postgis: public
+  postgresql:
+    version: "15"
